@@ -1,0 +1,8 @@
+{
+    "identifier": "org.tomsalvo",
+    "name": "Z80",
+    "organization": "Tom Salvo",
+    "description": "Basic syntax highlighting for Z80 assembly",
+    "version": "0.0.1",
+    "categories": ["languages"]
+}

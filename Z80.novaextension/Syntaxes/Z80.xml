@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="Z80">
+    <meta>
+        <name>Z80</name>
+        <preferred-file-extension>asm</preferred-file-extension>
+    </meta>
+
+    <detectors>
+        <extension priority="1.0">s,S,asm,</extension>
+    </detectors>
+
+    <comments>
+        <single>
+            <expression>;(.*)$</expression>
+        </single>
+    </comments>
+    
+    <brackets>
+        <pair open="[" close="]" />
+    </brackets>
+    
+    <surrounding-pairs>
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&quot;" close="&quot;" />
+    </surrounding-pairs>
+
+<!--     <symbols redefinition="within-construct">
+        <local scope="within-construct" />
+        <documentation mode="before" match-multiple="comment" />
+        <documentation mode="after" match-multiple="comment" />
+    </symbols> -->
+
+    <scopes>
+        <include syntax="self" collection="values" />
+        <include syntax="self" collection="strings" />
+        <include syntax="self" collection="comments" />
+        <include syntax="self" collection="identifiers" />
+        <include syntax="self" collection="keywords" />
+    </scopes>
+
+    <collections>
+        <collection name="values">
+            <scope name="z80.value.number.hex">
+                <expression>\$[0-9a-fA-F]+</expression>
+            </scope>
+            <scope name="z80.value.boolean.bin">
+                <expression>\%[0-1]+</expression>
+            </scope>
+            <scope name="z80.value.number.dec">
+                <expression>\b[0-9]+</expression>
+            </scope>
+        </collection>
+        <collection name="comments">
+            <scope name="z80.comment.single" spell-check="false">
+                <expression>;(.*)$</expression>
+            </scope>
+        </collection>
+        <collection name="strings">
+            <scope name="z80.string.singleline">
+                <expression>&quot;(?:[^&quot;\\]|\\.)*(?:&quot;|$)</expression>
+            </scope>
+        </collection>
+        <collection name="keywords">
+            <scope name="z80.keyword.construct">
+                <strings case-insensitive="true">
+                    <string>adc</string>
+                    <string>add</string>
+                    <string>and</string>
+                    <string>bit</string>
+                    <string>call</string>
+                    <string>ccf</string>
+                    <string>cp</string>
+                    <string>cpd</string>
+                    <string>cpdr</string>
+                    <string>cpi</string>
+                    <string>cpir</string>
+                    <string>cpl</string>
+                    <string>daa</string>
+                    <string>dec</string>
+                    <string>di</string>
+                    <string>djnz</string>
+                    <string>ei</string>
+                    <string>ex</string>
+                    <string>exx</string>
+                    <string>halt</string>
+                    <string>im</string>
+                    <string>in</string>
+                    <string>inc</string>
+                    <string>ind</string>
+                    <string>indr</string>
+                    <string>ini</string>     
+                    <string>inir</string>
+                    <string>jp</string>
+                    <string>jr</string>
+                    <string>ld</string>
+                    <string>ldd</string>
+                    <string>lddr</string>
+                    <string>ldi</string>
+                    <string>ldir</string>
+                    <string>neg</string>
+                    <string>nop</string>
+                    <string>or</string>
+                    <string>otdr</string>
+                    <string>otir</string>
+                    <string>out</string>
+                    <string>outd</string> 
+                    <string>outi</string>
+                    <string>pop</string>
+                    <string>push</string>
+                    <string>res</string>
+                    <string>ret</string>
+                    <string>reti</string>
+                    <string>retn</string>
+                    <string>rl</string>
+                    <string>rla</string>
+                    <string>rlc</string>
+                    <string>rlca</string>
+                    <string>rld</string>
+                    <string>rr</string>
+                    <string>rra</string>
+                    <string>rrc</string>
+                    <string>rrca</string>
+                    <string>rrd</string>
+                    <string>rst</string>
+                    <string>sbc</string>
+                    <string>scf</string>
+                    <string>set</string>
+                    <string>sla</string>
+                    <string>sll</string>
+                    <string>sra</string>
+                    <string>srl</string>
+                    <string>sub</string>
+                    <string>xor</string>
+                </strings>
+            </scope>
+            <scope name="z80.processing">
+                <strings case-insensitive="true">
+                    <string>alias</string>
+                    <string>align</string>
+                    <string>break</string>
+                    <string>case</string>
+                    <string>db</string>
+                    <string>defb</string>
+                    <string>defs</string>
+                    <string>defw</string>
+                    <string>ds</string>
+                    <string>dw</string>
+                    <string>else</string>
+                    <string>end</string>
+                    <string>endif</string>
+                    <string>endm</string>
+                    <string>endr</string>
+                    <string>ends</string>
+                    <string>equ</string>
+                    <string>error</string>
+                    <string>expand</string>
+                    <string>if</string>
+                    <string>ifdef</string>
+                    <string>ifndef</string>
+                    <string>incbin</string>
+                    <string>include</string>
+                    <string>list</string>
+                    <string>macro</string>
+                    <string>message</string>
+                    <string>messg</string>
+                    <string>noexpand</string>
+                    <string>nolist</string>
+                    <string>org</string>
+                    <string>processor</string>
+                    <string>repeat</string>
+                    <string>rept</string>
+                    <string>rorg</string>
+                    <string>seg</string>
+                    <string>segu</string>
+                    <string>set</string>
+                    <string>switch</string>
+                    <string>unalias</string>
+                    <string>unset</string>
+                    <string>warning</string>
+                </strings>
+            </scope>
+        </collection>
+        <collection name="identifiers">
+            <scope name="z80.identifier.argument.registers">
+                <strings case-insensitive="true">
+                    <string>a</string>
+                    <string>af</string>
+                    <string>b</string>
+                    <string>bc</string>
+                    <string>c</string>
+                    <string>d</string>
+                    <string>de</string>
+                    <string>e</string>
+                    <string>h</string>
+                    <string>hl</string>
+                    <string>i</string>
+                    <string>ix</string>
+                    <string>ixh</string>
+                    <string>ixl</string>
+                    <string>iy</string>
+                    <string>iyh</string>
+                    <string>iyl</string>
+                    <string>l</string>
+                    <string>r</string>
+                    <string>sp</string>
+                    <string>m</string>
+                    <string>nc</string>
+                    <string>nz</string>
+                    <string>p</string>
+                    <string>pe</string>
+                    <string>pm</string>
+                    <string>po</string>
+                    <string>z</string>
+                </strings>
+            </scope>
+        </collection>
+    </collections>
+
+</syntax>
