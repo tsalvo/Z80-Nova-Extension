@@ -1,7 +1,7 @@
 {
-    "identifier": "org.tomsalvo",
+    "identifier": "com.tomsalvo.z80",
     "name": "Z80",
-    "organization": "Tom Salvo",
+    "organization": "tomsalvo",
     "description": "Basic syntax highlighting for Z80 assembly",
     "repository": "https://github.com/tsalvo/Z80-Nova-Extension",
     "bugs": "https://github.com/tsalvo/Z80-Nova-Extension/issues",
