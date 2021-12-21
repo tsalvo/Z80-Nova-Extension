@@ -5,6 +5,6 @@
     "description": "Basic syntax highlighting for Z80 assembly",
     "repository": "https://github.com/tsalvo/Z80-Nova-Extension",
     "bugs": "https://github.com/tsalvo/Z80-Nova-Extension/issues",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "categories": ["languages"]
 }

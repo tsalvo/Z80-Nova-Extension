@@ -25,16 +25,11 @@
         <pair open="&quot;" close="&quot;" />
     </surrounding-pairs>
 
-<!--     <symbols redefinition="within-construct">
-        <local scope="within-construct" />
-        <documentation mode="before" match-multiple="comment" />
-        <documentation mode="after" match-multiple="comment" />
-    </symbols> -->
-
     <scopes>
         <include syntax="self" collection="values" />
         <include syntax="self" collection="strings" />
         <include syntax="self" collection="comments" />
+        <include syntax="self" collection="routines" />
         <include syntax="self" collection="identifiers" />
         <include syntax="self" collection="keywords" />
     </scopes>
@@ -42,18 +37,23 @@
     <collections>
         <collection name="values">
             <scope name="z80.value.number.hex">
-                <expression>\$[0-9a-fA-F]+</expression>
+                <expression>\$[0-9a-fA-F]+\b</expression>
             </scope>
             <scope name="z80.value.boolean.bin">
-                <expression>\%[0-1]+</expression>
+                <expression>\%[0-1]+\b</expression>
             </scope>
             <scope name="z80.value.number.dec">
-                <expression>\b[0-9]+</expression>
+                <expression>\b[0-9]+\b</expression>
             </scope>
         </collection>
         <collection name="comments">
             <scope name="z80.comment.single" spell-check="false">
                 <expression>;(.*)$</expression>
+            </scope>
+        </collection>
+        <collection name="routines">
+            <scope name="6502.identifier.function.name">
+                <expression>[0-9a-zA-Z_]+:</expression>
             </scope>
         </collection>
         <collection name="strings">
@@ -171,6 +171,7 @@
                     <string>repeat</string>
                     <string>rept</string>
                     <string>rorg</string>
+                    <string>section</string>
                     <string>seg</string>
                     <string>segu</string>
                     <string>set</string>
